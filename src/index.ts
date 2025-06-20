@@ -1,18 +1,34 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Bind resources to your worker in `wrangler.jsonc`. After adding bindings, a type definition for the
- * `Env` object can be regenerated with `npm run cf-typegen`.
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
+import type { MyEnv } from './types/Env';
+import type { DeviceWebhook } from './types/SwitchBot';
+import { handleDeviceWebhook } from './handlers';
 
 export default {
-	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
-	},
-} satisfies ExportedHandler<Env>;
+  async fetch(request: Request, env: MyEnv, ctx: ExecutionContext): Promise<Response> {
+    const url = new URL(request.url);
+
+    if (request.method === 'GET' && url.pathname.startsWith('/healthcheck')) {
+      return new Response('HEALTHY', { status: 200 })
+    }
+
+    if (!url.pathname.startsWith('/hooks')) {
+      return new Response('Method Not Allowed', { status: 404 })
+    }
+
+    if (request.method !== 'POST') {
+      return new Response('Method Not Allowed', { status: 405 })
+    }
+
+    const data = await request.json<DeviceWebhook>().catch(() => null);
+
+    if (!data) {
+      return new Response('Invalid request', { status: 400 });
+    }
+
+    await handleDeviceWebhook(data, env);
+
+    return new Response('OK', {
+      status: 200,
+      headers: { 'Content-Type': 'text/plain' },
+    });
+  },
+} satisfies ExportedHandler<MyEnv>;
