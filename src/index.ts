@@ -11,7 +11,7 @@ export default {
     }
 
     if (!url.pathname.startsWith('/hooks')) {
-      return new Response('Method Not Allowed', { status: 404 })
+      return new Response('Not Found', { status: 404 })
     }
 
     if (request.method !== 'POST') {
