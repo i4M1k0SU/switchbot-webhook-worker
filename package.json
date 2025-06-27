@@ -1,10 +1,10 @@
 {
-	"name": "switchbot-webhook",
+	"name": "switchbot-webhook-worker",
 	"version": "1.0.0",
-	"description": "Cloudflare Workers for SwitchBot Webhook",
+	"description": "SwitchBot Webhook Receiver for Cloudflare Workers.",
 	"author": "i4M1k0SU",
 	"license": "MIT",
-	"repository": "github:i4M1k0SU/switchbot-webhook",
+	"repository": "github:i4M1k0SU/switchbot-webhook-worker",
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",
