@@ -12,6 +12,7 @@ npm ci
 
 ```shell
 npx wrangler login # Login to Cloudflare
+npx wrangler secret put [KEY] # Set Secret env
 npm run deploy # Deploy
 ```
 
