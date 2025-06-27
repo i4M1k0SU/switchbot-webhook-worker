@@ -1,5 +1,5 @@
 // npx wrangler secret put [KEY]
-export type SecretEnv = {
+type SecretEnv = {
   DISCORD_WEBHOOK_URL: string;
   MAILBOX_MOTION_SENSOR_MAC: string;
 };
