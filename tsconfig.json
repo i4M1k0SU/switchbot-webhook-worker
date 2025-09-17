@@ -37,11 +37,5 @@
 	"include": [
 		"worker-configuration.d.ts",
 		"src/**/*.ts"
-	],
-	"ts-node": {
-		"compilerOptions": {
-			"module": "CommonJS"
-		},
-		"include": ["scripts/**/*.ts"]
-	}
+	]
 }
