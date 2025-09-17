@@ -10,6 +10,7 @@ const IncomingRequest = Request<unknown, IncomingRequestCfProperties>;
 const env: MyEnv = {
 	...testEnv,
 	DISCORD_WEBHOOK_URL: '',
+  MAILBOX_MOTION_SENSOR_MAC: '',
 };
 
 describe('SwitchBot Webhook worker', () => {
