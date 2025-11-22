@@ -4,8 +4,8 @@ import { discordWebhook } from '../functions/Discord';
 
 export async function handle(event: DeviceWebhook, env: MyEnv): Promise<void> {
   if (event.context.deviceType !== 'WoPresence' || event.context.deviceMac !== env.MAILBOX_MOTION_SENSOR_MAC) {
-        return;
-    }
+    return;
+  }
 
   if (event.context.detectionState === 'DETECTED') {
     await discordWebhook(
