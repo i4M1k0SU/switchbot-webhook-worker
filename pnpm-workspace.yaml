@@ -1,0 +1,4 @@
+minimumReleaseAge: 10080 # 1 week
+linkWorkspacePackages: false
+sharedWorkspaceLockfile: false
+recursiveInstall: false
