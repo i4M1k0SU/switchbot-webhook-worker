@@ -5,20 +5,20 @@ SwitchBot Webhook Receiver for Cloudflare Workers.
 ## Setup
 
 ```shell
-npm ci
+pnpm run ci
 ```
 
 ### Cloudflare Workers
 
 ```shell
-npx wrangler login # Login to Cloudflare
-npx wrangler secret put [KEY] # Set Secret env
-npm run deploy # Deploy
+pnpm exec wrangler login # Login to Cloudflare
+pnpm exec wrangler secret put [KEY] # Set Secret env
+pnpm run deploy # Deploy
 ```
 
 ### SwitchBot API
 
 ```shell
-npm run setupWebhook -- --token=[Token] --secret=[Secret] --url=[URL] # Setup Webhook URL
-npm run deleteWebhook -- --token=[Token] --secret=[Secret] --url=[URL] # Delete Webhook URL
+pnpm run setupWebhook -- --token=[Token] --secret=[Secret] --url=[URL] # Setup Webhook URL
+pnpm run deleteWebhook -- --token=[Token] --secret=[Secret] --url=[URL] # Delete Webhook URL
 ```
