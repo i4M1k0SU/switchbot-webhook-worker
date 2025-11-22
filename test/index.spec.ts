@@ -11,6 +11,7 @@ const env: MyEnv = {
   ...testEnv,
   DISCORD_WEBHOOK_URL: '',
   MAILBOX_MOTION_SENSOR_MAC: '',
+  CLOSET_CONTACT_SENSOR_MAC: '',
 };
 
 describe('SwitchBot Webhook worker', () => {

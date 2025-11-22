@@ -2,6 +2,7 @@
 type SecretEnv = {
   DISCORD_WEBHOOK_URL: string;
   MAILBOX_MOTION_SENSOR_MAC: string;
+  CLOSET_CONTACT_SENSOR_MAC: string;
 };
 
 export type MyEnv = Env & SecretEnv;
